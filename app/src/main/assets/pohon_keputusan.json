@@ -1,0 +1,212 @@
+[
+	{
+		"gejala": "Apakah perlahan-lahan daun berwarna kuning dari pucuk tanaman hingga seluruh tanaman?",
+		"kode":"G1",
+		"penyakit_id":0,
+		"child": [
+			{
+				"gejala": "Apakah terdapat bercak bulat pada tepi daun berwarna coklat kelabu dan sedikit basah?",
+				"kode":"G2",
+				"penyakit_id":0,
+				"child": [
+					{
+						"gejala": "Apakah daun mengering dari ujung hingga pangkal?",
+						"kode":"G3",
+						"penyakit_id":0,
+						"child": []
+					},
+					{
+						"gejala": "Apakah daun berguguran dari bawah ke atas?",
+						"kode":"G4",
+						"penyakit_id":0,
+						"child": []
+					},
+					{
+						"gejala": "Apakah terdapat infeksi pada pangkal batang setinggi 30cm dari permukaan tanah?",
+						"kode":"G5",
+						"penyakit_id":0,
+						"child": []
+					},
+					{
+						"gejala": "Apakah kulit pangkal batang berwarna coklat sampai hitam?",
+						"kode":"G6",
+						"penyakit_id":1,
+						"child": []
+					}
+				]
+			},
+			{
+				"gejala": "Apakah daun-daun muda berguguran dari ujung tanaman hingga pangkal tanaman?",
+				"kode":"G9",
+				"penyakit_id":0,
+				"child": [
+					{
+						"gejala": "Apakah tanaman tidak mengalami pertumbuhan?",
+						"kode":"G7",
+						"penyakit_id":0,
+						"child": [
+							{
+								"gejala": "Apakah ujung cabang tidak membentuk daun baru?",
+								"kode":"G8",
+								"penyakit_id":0,
+								"child": []
+							},
+							{
+								"gejala": "Apakah batang berwarna kuning?",
+								"kode":"G10",
+								"penyakit_id":0,
+								"child": []
+							},
+							{
+								"gejala": "Apakah jumlah akar rambut sedikit dan berwarna coklat kehitaman?",
+								"kode":"G11",
+								"penyakit_id":2,
+								"child": []
+							}
+						]
+					},
+					{
+						"gejala": "Apakah daun tua kaku, keras, tegak, dan ukuran tidak sama?",
+						"kode":"G17",
+						"penyakit_id":0,
+						"child": [
+							{
+								"gejala": "Apakah cabang berkembang tidak simetri dan ujungnya mati?",
+								"kode":"G18",
+								"penyakit_id":6,
+								"child": []
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"gejala": "Apakah daun-daun muda berguguran dari ujung tanaman hingga pangkal tanaman?",
+		"kode":"G9",
+		"penyakit_id":0,
+		"child": [
+			{
+				"gejala": "Apakah pada daun tua terjadi bercak nekrotik (jaringan mati)?",
+				"kode":"G19",
+				"penyakit_id":0,
+				"child": []
+			},
+			{
+				"gejala": "Apakah ranting mati sehingga tanaman tampak seperti sapu?",
+				"kode":"G20",
+				"penyakit_id":7,
+				"child": []
+			}
+		]
+	},
+	{
+		"gejala": "Apakah daun mengering dari ujung hingga pangkal?",
+		"kode":"G3",
+		"penyakit_id":0,
+		"child": [
+			{
+				"gejala": "Apakah terdapat benang jamur berwarna putih kemudian berubah menjadi merah jambu pada batang yang sakit?",
+				"kode":"G14",
+				"penyakit_id":4,
+				"child": []
+			}
+		]
+	},
+	{
+		"gejala": "Apakah daun tunas muda berubah bentuk atau malformasi?",
+		"kode":"G12",
+		"penyakit_id":0,
+		"child": [
+			{
+				"gejala": "Apakah daun pucuk menunjukan gejala mosaik dan bercak klorotis (bintik kekuningan)?",
+				"kode":"G13",
+				"penyakit_id":3,
+				"child": []
+			}
+		]
+	},
+	{
+		"gejala": "Apakah daun yang kering tergantung pada cabang terikat oleh benang jamur?",
+		"kode":"G15",
+		"penyakit_id":0,
+		"child": [
+			{
+				"gejala": "Apakah terdapat benang putih bercabang-cabang pada batang?",
+				"kode":"G16",
+				"penyakit_id":5,
+				"child": []
+			}
+		]
+	},
+	{
+		"gejala": "Apakah terdapat bercak daun berwarna variasi seperti kelabu, coklat dan hitam?",
+		"kode":"G21",
+		"penyakit_id":0,
+		"child": [
+			{
+				"gejala": "Apakah bercak daun mempunyai lingkaran yang sepusat?",
+				"kode":"G22",
+				"penyakit_id":8,
+				"child": []
+			}
+		]
+	},
+	{
+		"gejala": "Apakah pada daun terdapat bercak hijau kemerahan?",
+		"kode":"G23",
+		"penyakit_id":9,
+		"child": []
+	},
+	{
+		"gejala": "Apakah terdapat titik-titik hitam pada daun?",
+		"kode":"G24",
+		"penyakit_id":0,
+		"child": [
+			{
+				"gejala": "Apakah bunga lada berguguran sebelum pembentukan buah?",
+				"kode":"G25",
+				"penyakit_id":0,
+				"child": []
+			},
+			{
+				"gejala": "Apakah buah yang berkembang memiliki ukuran lebih kecil?",
+				"kode":"G26",
+				"penyakit_id":0,
+				"child": []
+			},
+			{
+				"gejala": "Apakah pada buah terdapat bintik hitam?",
+				"kode": "G27",
+				"penyakit_id": 0,
+				"child": []
+			},
+			{
+				"gejala": "Apakah pada buah terdapat bulu keemasan?",
+				"kode":"G28",
+				"penyakit_id":10,
+				"child": []
+			}
+		]
+	},
+	{
+		"gejala": "Apakah pada permukaan kayu terdapat titik hitam, jika dipotong terdapat garis-garis hitam?",
+		"kode":"G29",
+		"penyakit_id":0,
+		"child": [
+			{
+				"gejala": "Apakah kulit kayu membusuk?",
+				"kode":"G30",
+				"penyakit_id":0,
+				"child": []
+			},
+			{
+				"gejala": "Apakah tanaman layu kemudian mati dan pada pangkal batang terdapat lapisan jamur berwarna hitam?",
+				"kode":"G31",
+				"penyakit_id":11,
+				"child": []
+			}
+		]
+	}
+]

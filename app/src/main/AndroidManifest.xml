@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="unila.rizka.pakarlada">
+
+    <application
+        android:name="com.orm.SugarApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="DATABASE"
+            android:value="database.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="3" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="unila.rizka.pakarlada.model" />
+
+        <activity
+            android:name=".SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.DataPenyakitActivity"
+            android:label="@string/title_activity_data_penyakit"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.BantuanActivity"
+            android:label="@string/title_activity_bantuan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.KonsultasiActivity"
+            android:label="@string/title_activity_konsultasi"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.TentangActivity"
+            android:label="@string/title_activity_tentang"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.DetailPenyakitActivity"
+            android:label="@string/title_activity_detail_penyakit"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>

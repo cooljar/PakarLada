@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pakar Lada</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">PAKAR\nLADA</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_data_penyakit">DataPenyakitActivity</string>
+    <string name="title_activity_bantuan">BantuanActivity</string>
+    <string name="title_activity_konsultasi">KonsultasiActivity</string>
+    <string name="title_activity_tentang">TentangActivity</string>
+    <string name="title_activity_detail_penyakit">DetailPenyakitActivity</string>
+</resources>
