@@ -5,7 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -24,14 +27,16 @@ public class PenyakitAdapter extends RecyclerView.Adapter<PenyakitAdapter.ViewHo
     private Context context;
     private List<Penyakit> mPenyakit;
     private OnItemClickListener clickListener;
+    private int layoutWidth = 0;
 
     public void setClickListener(OnItemClickListener itemClickListener) {
         this.clickListener = itemClickListener;
     }
 
-    public PenyakitAdapter(Context context, List<Penyakit> penyakits) {
+    public PenyakitAdapter(Context context, List<Penyakit> penyakits, int layoutWidth) {
         this.context = context;
         this.mPenyakit = penyakits;
+        this.layoutWidth = layoutWidth;
     }
 
 
@@ -45,6 +50,14 @@ public class PenyakitAdapter extends RecyclerView.Adapter<PenyakitAdapter.ViewHo
     public void onBindViewHolder(PenyakitAdapter.ViewHolder holder, int position) {
         Penyakit penyakit = mPenyakit.get(position);
         holder.tvNamaPenyakit.setText(penyakit.nama);
+
+        holder.ivImage.requestLayout();
+        holder.ivImage.getLayoutParams().height = layoutWidth / 7;
+        holder.ivImage.getLayoutParams().width = layoutWidth / 7;
+
+        Picasso.with(context)
+                .load(R.drawable.unive)
+                .into(holder.ivImage);
     }
 
     @Override
@@ -53,6 +66,7 @@ public class PenyakitAdapter extends RecyclerView.Adapter<PenyakitAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        @BindView(R.id.ivImage) ImageView ivImage;
         @BindView(R.id.tvNamaPenyakit) TextView tvNamaPenyakit;
 
         public ViewHolder(View view) {

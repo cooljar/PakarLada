@@ -60,7 +60,7 @@ public class SplashActivity extends AppCompatActivity {
                 layoutHeight = rlContainer.getHeight();
 
                 Picasso.with(SplashActivity.this)
-                        .load(R.mipmap.ic_launcher)
+                        .load(R.drawable.unive)
                         .transform(new FitXyTransformation(layoutWidth / 2, false))
                         .into(imageView);
 

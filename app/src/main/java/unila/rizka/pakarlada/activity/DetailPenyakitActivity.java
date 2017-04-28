@@ -5,6 +5,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -34,6 +36,7 @@ public class DetailPenyakitActivity extends AppCompatActivity {
     @BindView(R.id.tvPkim) TextView tvPkim;
     @BindView(R.id.tvPbud) TextView tvPbud;
     @BindView(R.id.llGejala) LinearLayout llGejala;
+    @BindView(R.id.llPenangananBudidaya) LinearLayout llPenangananBudidaya;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +53,19 @@ public class DetailPenyakitActivity extends AppCompatActivity {
         getSupportActionBar().setSubtitle(mPenyakit.nama);
 
         tvNamaPenyakit.setText(mPenyakit.nama);
-        tvDeskripsi.setText(mPenyakit.deskripsi);
+
+        // get our html content
+        Spanned htmlAsSpanned = fromHtml(mPenyakit.deskripsi);
+        tvDeskripsi.setText(htmlAsSpanned);
+
         tvPmek.setText(mPenyakit.penangananmekanis);
         tvPkim.setText(mPenyakit.penanganankimiawi);
-        tvPbud.setText(mPenyakit.penangananbudidaya);
+
+        if(mPenyakit.penangananbudidaya.equals("-")){
+            llPenangananBudidaya.setVisibility(View.GONE);
+        }else{
+            tvPbud.setText(mPenyakit.penangananbudidaya);
+        }
 
         for(PenyakitGejala pg : mPenyakit.getPenyakitGejala()){
             Gejala gejala = pg.getGejala();
@@ -71,4 +83,14 @@ public class DetailPenyakitActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressWarnings("deprecation")
+    private Spanned fromHtml(String html){
+        Spanned result;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            result = Html.fromHtml(html);
+        }
+        return result;
+    }
 }

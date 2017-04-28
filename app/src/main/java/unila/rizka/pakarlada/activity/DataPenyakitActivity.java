@@ -33,10 +33,13 @@ import unila.rizka.pakarlada.model.Penyakit;
 
 public class DataPenyakitActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
+    public static final String LAYOUT_WIDTH_PARAM = "layout_width_param";
+
     private LinearLayoutManager mLinearLayoutManager;
     private PenyakitAdapter mAdapter;
     private List<Penyakit> mPenyakitList = new ArrayList<>();
     private List<Penyakit> mPenyakitListFiltered = new ArrayList<>();
+    private int layoutWidth = 0;
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
 
@@ -50,10 +53,12 @@ public class DataPenyakitActivity extends AppCompatActivity implements SearchVie
 
         ButterKnife.bind(this);
 
+        layoutWidth = getIntent().getIntExtra(LAYOUT_WIDTH_PARAM, 0);
+
         mPenyakitList.addAll(Penyakit.listAll(Penyakit.class));
         mPenyakitListFiltered.addAll(mPenyakitList);
 
-        mAdapter = new PenyakitAdapter(this, mPenyakitListFiltered);
+        mAdapter = new PenyakitAdapter(this, mPenyakitListFiltered, layoutWidth);
         mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));

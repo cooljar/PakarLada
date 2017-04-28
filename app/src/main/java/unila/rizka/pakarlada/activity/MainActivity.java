@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.llDataPenyakit)
     public void openDataPenyakit() {
         Intent intent = new Intent(MainActivity.this, DataPenyakitActivity.class);
+        intent.putExtra(DataPenyakitActivity.LAYOUT_WIDTH_PARAM, layoutWidth);
         startActivity(intent);
     }
 
