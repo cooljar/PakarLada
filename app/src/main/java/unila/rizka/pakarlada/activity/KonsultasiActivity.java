@@ -155,7 +155,21 @@ public class KonsultasiActivity extends AppCompatActivity {
             tvPertanyaan.setText(currentPhk.gejala + " (" +currentPhk.kode + ")");
             penyakitId = currentPhk.penyakit_id;
         }else{
-            resetPhk();
+            if(topLevel){
+                AlertDialog.Builder builder = new AlertDialog.Builder(KonsultasiActivity.this);
+                builder.setTitle("Hasil Analisa!");
+                builder.setMessage("Tanaman lada anda sehat-sehat saja.");
+                builder.setPositiveButton("Ok",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int which) {
+                                dialog.dismiss();
+                                resetPhk();
+                            }
+                        });
+                builder.show();
+            }else{
+                resetPhk();
+            }
         }
     }
 
