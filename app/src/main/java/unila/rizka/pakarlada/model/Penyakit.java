@@ -14,18 +14,20 @@ import java.util.List;
 
 @Parcel
 public class Penyakit extends SugarRecord {
-    public String kode, nama, deskripsi, penangananmekanis, penanganankimiawi, penangananbudidaya;
+    public String kode, nama, deskripsi, penangananmekanis, penanganankimiawi, penangananbudidaya, gambar;
 
     public Penyakit() {
     }
 
-    public Penyakit(String kode, String nama, String deskripsi, String penangananmekanis, String penanganankimiawi, String penangananbudidaya) {
+    public Penyakit(String kode, String nama, String deskripsi, String penangananmekanis, String penanganankimiawi,
+                    String penangananbudidaya, String gambar) {
         this.kode = kode;
         this.nama = nama;
         this.deskripsi = deskripsi;
         this.penangananmekanis = penangananmekanis;
         this.penanganankimiawi = penanganankimiawi;
         this.penangananbudidaya = penangananbudidaya;
+        this.gambar = gambar;
     }
 
     public List<PenyakitGejala> getPenyakitGejala(){

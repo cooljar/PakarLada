@@ -56,7 +56,8 @@ public class PenyakitAdapter extends RecyclerView.Adapter<PenyakitAdapter.ViewHo
         holder.ivImage.getLayoutParams().width = layoutWidth / 7;
 
         Picasso.with(context)
-                .load(R.drawable.unive)
+                .load("file:///android_asset/image/" + penyakit.gambar)
+                .placeholder(R.mipmap.ic_launcher)
                 .into(holder.ivImage);
     }
 

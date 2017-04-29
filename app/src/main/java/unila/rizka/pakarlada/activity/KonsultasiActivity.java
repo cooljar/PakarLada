@@ -196,6 +196,7 @@ public class KonsultasiActivity extends AppCompatActivity {
 
                         Intent intent = new Intent(KonsultasiActivity.this, DetailPenyakitActivity.class);
                         intent.putExtra(DetailPenyakitActivity.PENYAKIT_PARCEL, Parcels.wrap(penyakit));
+                        intent.putExtra(DetailPenyakitActivity.LAYOUT_WIDTH_PARCEL, layoutWidth);
                         startActivity(intent);
 
                         resetPhk();

@@ -71,6 +71,7 @@ public class DataPenyakitActivity extends AppCompatActivity implements SearchVie
 
                 Intent intent = new Intent(DataPenyakitActivity.this, DetailPenyakitActivity.class);
                 intent.putExtra(DetailPenyakitActivity.PENYAKIT_PARCEL, Parcels.wrap(penyakit));
+                intent.putExtra(DetailPenyakitActivity.LAYOUT_WIDTH_PARCEL, layoutWidth);
                 startActivity(intent);
             }
         });
