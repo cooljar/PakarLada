@@ -114,19 +114,26 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("Konfirmasi");
         builder.setMessage("Aplikasi akan ditutup. Lanjutkan?");
-        builder.setPositiveButton("Ya",
+
+        builder.setPositiveButton(
+                "Ya",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int which) {
                         dialog.dismiss();
                         MainActivity.this.finish();
                     }
-                });
-        builder.setNegativeButton("Batal",
+                }
+        );
+
+        builder.setNegativeButton(
+                "Batal",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int which) {
                         dialog.dismiss();
                     }
-                });
+                }
+        );
+
         builder.show();
     }
 }
