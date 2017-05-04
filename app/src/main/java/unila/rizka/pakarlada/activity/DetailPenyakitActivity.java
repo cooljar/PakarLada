@@ -45,6 +45,8 @@ public class DetailPenyakitActivity extends AppCompatActivity {
     @BindView(R.id.tvPbud) TextView tvPbud;
     @BindView(R.id.llGejala) LinearLayout llGejala;
     @BindView(R.id.llPenangananBudidaya) LinearLayout llPenangananBudidaya;
+    @BindView(R.id.llPenangananMekanis) LinearLayout llPenangananMekanis;
+    @BindView(R.id.llPenangananKimiawi) LinearLayout llPenangananKimiawi;
     @BindView(R.id.ivGambar) ImageView ivGambar;
 
     @Override
@@ -69,13 +71,22 @@ public class DetailPenyakitActivity extends AppCompatActivity {
         Spanned htmlAsSpanned = fromHtml(mPenyakit.deskripsi);
         tvDeskripsi.setText(htmlAsSpanned);
 
-        tvPmek.setText(mPenyakit.penangananmekanis);
-        tvPkim.setText(mPenyakit.penanganankimiawi);
-
         if(mPenyakit.penangananbudidaya.equals("-")){
             llPenangananBudidaya.setVisibility(View.GONE);
         }else{
             tvPbud.setText(mPenyakit.penangananbudidaya);
+        }
+
+        if(mPenyakit.penangananmekanis.equals("-")){
+            llPenangananMekanis.setVisibility(View.GONE);
+        }else{
+            tvPmek.setText(mPenyakit.penangananmekanis);
+        }
+
+        if(mPenyakit.penanganankimiawi.equals("-")){
+            llPenangananKimiawi.setVisibility(View.GONE);
+        }else{
+            tvPkim.setText(mPenyakit.penanganankimiawi);
         }
 
         for(PenyakitGejala pg : mPenyakit.getPenyakitGejala()){
