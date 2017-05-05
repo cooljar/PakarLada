@@ -93,7 +93,6 @@ public class KonsultasiActivity extends AppCompatActivity {
                 btYa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        qtyYa = qtyYa + 1;
                         if(penyakitId != 0){
                             showDialogResult();
                         }else{
@@ -105,8 +104,8 @@ public class KonsultasiActivity extends AppCompatActivity {
                 btTidak.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        qtyTidak = qtyTidak + 1;
                         if(penyakitId != 0 && !topLevel){
+                            qtyTidak = qtyTidak + 1;
                             showDialogResult();
                         }else{
                             proccessTidak();
@@ -134,6 +133,7 @@ public class KonsultasiActivity extends AppCompatActivity {
     }
 
     private void proccessYa(){
+        qtyYa = qtyYa + 1;
         List<PohonKeputusan> pohonKeputusen = currentPhk.child;
         int pohonKeputusenSize = pohonKeputusen.size();
 
@@ -160,6 +160,10 @@ public class KonsultasiActivity extends AppCompatActivity {
             currentPhk = mPohonKeputusan.get(phkIndex);
             tvPertanyaan.setText(currentPhk.gejala + " (" +currentPhk.kode + ")");
             penyakitId = currentPhk.penyakit_id;
+
+            if(!topLevel){
+                qtyTidak = qtyTidak + 1;
+            }
         }else{
             if(topLevel){
                 AlertDialog.Builder builder = new AlertDialog.Builder(KonsultasiActivity.this);
@@ -199,6 +203,8 @@ public class KonsultasiActivity extends AppCompatActivity {
 
         double akurasi = hasilBagi * 100;
 
+        Log.e("Y", String.valueOf(qtyYa));
+        Log.e("N", String.valueOf(qtyTidak));
         Log.e("T", String.valueOf(total));
         Log.e("/", String.valueOf(hasilBagi));
         Log.e("=", String.valueOf(akurasi));
