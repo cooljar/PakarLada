@@ -8,6 +8,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -37,6 +39,8 @@ import unila.rizka.pakarlada.util.FitXyTransformation;
 public class KonsultasiActivity extends AppCompatActivity {
 
     int layoutWidth, layoutHeight, phkIndex, phkSize;
+    int qtyYa = 0;
+    int qtyTidak = 0;
     int penyakitId = 0;
     boolean topLevel = true;
     List<PohonKeputusan> mPohonKeputusanDefault;
@@ -89,6 +93,7 @@ public class KonsultasiActivity extends AppCompatActivity {
                 btYa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        qtyYa = qtyYa + 1;
                         if(penyakitId != 0){
                             showDialogResult();
                         }else{
@@ -100,6 +105,7 @@ public class KonsultasiActivity extends AppCompatActivity {
                 btTidak.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        qtyTidak = qtyTidak + 1;
                         if(penyakitId != 0 && !topLevel){
                             showDialogResult();
                         }else{
@@ -181,14 +187,36 @@ public class KonsultasiActivity extends AppCompatActivity {
         phkSize = mPohonKeputusan.size();
         currentPhk = mPohonKeputusan.get(phkIndex);
         tvPertanyaan.setText(currentPhk.gejala + " (" +currentPhk.kode + ")");
+        qtyYa = 0;
+        qtyTidak = 0;
     }
 
     private void showDialogResult(){
         final Penyakit penyakit = Penyakit.findById(Penyakit.class, penyakitId);
 
+        int total = qtyYa + qtyTidak;
+        double hasilBagi = (double) qtyYa / (double) total;
+
+        double akurasi = hasilBagi * 100;
+
+        Log.e("T", String.valueOf(total));
+        Log.e("/", String.valueOf(hasilBagi));
+        Log.e("=", String.valueOf(akurasi));
+
+        String namaPenyakit = penyakit.nama;
+
+        if(penyakit.nama.contains("<i>")){
+            namaPenyakit = namaPenyakit.replace("<i>", "");
+        }else if (penyakit.nama.contains("</i>")){
+            namaPenyakit = namaPenyakit.replace("</i>", "");
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(KonsultasiActivity.this);
         builder.setTitle("Hasil Analisa!");
-        builder.setMessage("Tanaman lada anda terserang " + penyakit.nama + " !! (" + penyakit.kode + ")");
+        builder.setMessage(
+                "Tanaman lada anda terserang " + namaPenyakit + " !! (" + penyakit.kode + ")"
+                + "Akurasi analisa " + String.valueOf((int) akurasi) + "%"
+        );
         builder.setPositiveButton("Lihat penjelasan penyakit",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int which) {
@@ -210,5 +238,16 @@ public class KonsultasiActivity extends AppCompatActivity {
                     }
                 });
         builder.show();
+    }
+
+    @SuppressWarnings("deprecation")
+    private Spanned fromHtml(String html){
+        Spanned result;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            result = Html.fromHtml(html);
+        }
+        return result;
     }
 }

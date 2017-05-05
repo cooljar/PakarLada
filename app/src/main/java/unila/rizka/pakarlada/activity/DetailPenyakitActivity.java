@@ -63,9 +63,14 @@ public class DetailPenyakitActivity extends AppCompatActivity {
         mPenyakit = Parcels.unwrap(intent.getParcelableExtra(PENYAKIT_PARCEL));
         layoutWidth = intent.getIntExtra(LAYOUT_WIDTH_PARCEL, 0);
 
-        getSupportActionBar().setSubtitle(mPenyakit.nama);
+        //getSupportActionBar().setSubtitle(mPenyakit.nama);
 
-        tvNamaPenyakit.setText(mPenyakit.nama);
+        String namaPenyakit = mPenyakit.nama;
+        if(namaPenyakit.contains("<i>")){
+            tvNamaPenyakit.setText(fromHtml(namaPenyakit));
+        }else{
+            tvNamaPenyakit.setText(namaPenyakit);
+        }
 
         // get our html content
         Spanned htmlAsSpanned = fromHtml(mPenyakit.deskripsi);

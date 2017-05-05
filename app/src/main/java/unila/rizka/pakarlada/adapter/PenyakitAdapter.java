@@ -2,6 +2,8 @@ package unila.rizka.pakarlada.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +51,13 @@ public class PenyakitAdapter extends RecyclerView.Adapter<PenyakitAdapter.ViewHo
     @Override
     public void onBindViewHolder(PenyakitAdapter.ViewHolder holder, int position) {
         Penyakit penyakit = mPenyakit.get(position);
-        holder.tvNamaPenyakit.setText(penyakit.nama);
+
+        String namaPenyakit = penyakit.nama;
+        if(namaPenyakit.contains("<i>")){
+            holder.tvNamaPenyakit.setText(fromHtml(namaPenyakit));
+        }else{
+            holder.tvNamaPenyakit.setText(penyakit.nama);
+        }
 
         holder.ivImage.requestLayout();
         holder.ivImage.getLayoutParams().height = layoutWidth / 7;
@@ -80,5 +88,16 @@ public class PenyakitAdapter extends RecyclerView.Adapter<PenyakitAdapter.ViewHo
         public void onClick(View view) {
             if (clickListener != null) clickListener.onClick(view, getAdapterPosition());
         }
+    }
+
+    @SuppressWarnings("deprecation")
+    private Spanned fromHtml(String html){
+        Spanned result;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            result = Html.fromHtml(html);
+        }
+        return result;
     }
 }
